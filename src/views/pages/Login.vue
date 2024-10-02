@@ -5,6 +5,8 @@ import { login } from "@/api/auth";
 
 const email = ref("");
 const password = ref("");
+const error_message = ref("");
+const ifError = ref(false);
 
 //buat fungsi login
 const loginProses = () => {
@@ -17,6 +19,9 @@ const loginProses = () => {
       router.push({ name: "Home" });
     })
     .catch((error) => {
+      //jika error status 401 maka password salah
+      error_message.value = "Password Salah";
+      ifError.value = true;
       console.log(error);
       console.log("password salah");
     });
@@ -40,6 +45,11 @@ const register = () => {
                 <CForm>
                   <h1>Login</h1>
                   <p class="text-body-secondary">Sign In to your account</p>
+                  <CAlert
+                  v-if="ifError"
+                   color="danger">
+                    <strong>Password salah!</strong> 
+                  </CAlert>
                   <CInputGroup class="mb-3">
                     <CInputGroupText>
                       <CIcon icon="cil-user" />

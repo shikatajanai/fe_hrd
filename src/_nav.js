@@ -21,9 +21,16 @@ export default [
   },
   {
     component: 'CNavItem',
-    name: 'Typography',
-    to: '/theme/typography',
-    icon: 'cil-pencil',
+    name: 'Divisi',
+    to: '/perusahaan/divisi',
+    icon: 'cil-notes',
+  },
+  //job level
+  {
+    component: 'CNavItem',
+    name: 'Job Level',
+    to: '/perusahaan/job-level',
+    icon: 'cil-notes',
   },
   {
     component: 'CNavTitle',

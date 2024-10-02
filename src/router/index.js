@@ -1,23 +1,23 @@
 import { h, resolveComponent } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
-import { jwtDecode } from "jwt-decode";
+import { jwtDecode } from 'jwt-decode'
 
 import DefaultLayout from '@/layouts/DefaultLayout'
 
 //is authenticated
 function isAuthenticated() {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token')
   if (token) {
-    const decodedToken = jwtDecode(token);
-    const currentTime = Date.now() / 1000;
+    const decodedToken = jwtDecode(token)
+    const currentTime = Date.now() / 1000
     // Jika token kadaluarsa, hapus token dari penyimpanan lokal
     if (decodedToken.exp < currentTime) {
-      localStorage.removeItem("token");
-      return false;
+      localStorage.removeItem('token')
+      return false
     }
-    return true;
+    return true
   }
-  return false;
+  return false
 }
 
 const routes = [
@@ -34,9 +34,8 @@ const routes = [
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         component: () =>
-          import(
-            /* webpackChunkName: "dashboard" */ '@/views/dashboard/Dashboard.vue'
-          ),
+          import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/Dashboard.vue'),
+        meta: { requiresAuth: true },
       },
       {
         path: '/theme',
@@ -50,11 +49,37 @@ const routes = [
         meta: { requiresAuth: true },
       },
       {
+        path: '/perusahaan/tambah',
+        name: 'NewCompany',
+        component: () => import('@/views/perusahaan/tambah.vue'),
+        meta: { requiresAuth: true },
+      },
+      //perusahaan/edit dengan params id
+      {
+        path: '/perusahaan/edit/:id',
+        name: 'EditCompany',
+        component: () => import('@/views/perusahaan/edit.vue'),
+        meta: { requiresAuth: true },
+      },
+      //divisi
+      {
+        path: '/perusahaan/divisi',
+        name: 'Divisi',
+        component: () => import('@/views/perusahaan/divisi/divisi.vue'),
+        meta: { requiresAuth: true },
+      },
+      //job-level
+      {
+        path: '/perusahaan/job-level',
+        name: 'JobLevel',
+        component: () => import('@/views/perusahaan/joblevel/job-level.vue'),
+        meta: { requiresAuth: true },
+      },
+      {
         path: '/theme/typography',
         name: 'Typography',
         component: () => import('@/views/theme/Typography.vue'),
         meta: { requiresAuth: true },
-        
       },
       {
         path: '/base',
@@ -336,22 +361,21 @@ const router = createRouter({
   },
 })
 
-
 // Gunakan navigation guard untuk memeriksa autentikasi sebelum mengakses rute yang memerlukan otentikasi
 router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     // Rute memerlukan otentikasi
     if (isAuthenticated()) {
       // Jika pengguna terautentikasi, izinkan akses
-      next();
+      next()
     } else {
       // Jika pengguna tidak terautentikasi, redirect ke halaman login
-      next({ name: "Login" });
+      next({ name: 'Login' })
     }
   } else {
     // Rute tidak memerlukan otentikasi, izinkan akses langsung
-    next();
+    next()
   }
-});
+})
 
 export default router
