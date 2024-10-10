@@ -19,104 +19,38 @@ export default [
     to: '/perusahaan/data',
     icon: 'cil-notes',
   },
-  {
-    component: 'CNavItem',
-    name: 'Divisi',
-    to: '/perusahaan/divisi',
-    icon: 'cil-notes',
-  },
-  //job level
-  {
-    component: 'CNavItem',
-    name: 'Job Level',
-    to: '/perusahaan/job-level',
-    icon: 'cil-notes',
-  },
+
   {
     component: 'CNavTitle',
-    name: 'Components',
+    name: 'All Menu',
   },
   {
     component: 'CNavGroup',
-    name: 'Base',
+    name: 'Company',
     to: '/base',
     icon: 'cil-puzzle',
     items: [
       {
         component: 'CNavItem',
-        name: 'Accordion',
-        to: '/base/accordion',
+        name: 'Data Perusahaan',
+        to: '/perusahaan/data',
       },
       {
         component: 'CNavItem',
-        name: 'Breadcrumbs',
-        to: '/base/breadcrumbs',
+        name: 'Divisi',
+        to: '/perusahaan/divisi',
       },
       {
         component: 'CNavItem',
-        name: 'Cards',
-        to: '/base/cards',
+        name: 'Job Level',
+        to: '/perusahaan/job-level',
       },
       {
         component: 'CNavItem',
-        name: 'Carousels',
-        to: '/base/carousels',
+        name: 'Job Position',
+        to: '/perusahaan/job-position',
       },
-      {
-        component: 'CNavItem',
-        name: 'Collapses',
-        to: '/base/collapses',
-      },
-      {
-        component: 'CNavItem',
-        name: 'List Groups',
-        to: '/base/list-groups',
-      },
-      {
-        component: 'CNavItem',
-        name: 'Navs & Tabs',
-        to: '/base/navs',
-      },
-      {
-        component: 'CNavItem',
-        name: 'Paginations',
-        to: '/base/paginations',
-      },
-      {
-        component: 'CNavItem',
-        name: 'Placeholders',
-        to: '/base/placeholders',
-      },
-      {
-        component: 'CNavItem',
-        name: 'Popovers',
-        to: '/base/popovers',
-      },
-      {
-        component: 'CNavItem',
-        name: 'Progress',
-        to: '/base/progress',
-      },
-      {
-        component: 'CNavItem',
-        name: 'Spinners',
-        to: '/base/spinners',
-      },
-      {
-        component: 'CNavItem',
-        name: 'Tables',
-        to: '/base/tables',
-      },
-      {
-        component: 'CNavItem',
-        name: 'Tabs',
-        to: '/base/tabs',
-      },
-      {
-        component: 'CNavItem',
-        name: 'Tooltips',
-        to: '/base/tooltips',
-      },
+      
     ],
   },
   {

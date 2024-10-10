@@ -165,11 +165,70 @@ export const storeJobLevel = async (data) => {
   }
 }
 
-
 //joblevel. delete
 export const deleteJobLevel = async (id) => {
   try {
     const response = await axiosInstance.delete(`/job_level/${id}`)
+    console.log(response.data)
+    return response.data
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}
+
+//updateJobLevel. post
+export const updateJobLevel = async (data) => {
+  try {
+    const response = await axiosInstance.post(`/job_level/update`, data)
+    console.log(response.data)
+    return response.data
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}
+
+//storeJobPosition. post
+export const storeJobPosition = async (data) => {
+  try {
+    const response = await axiosInstance.post('/job_position', data)
+    console.log(response.data)
+    return response.data
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}
+
+//getJobPosition. get
+export const getJobPosition = async () => {
+  try {
+    const response = await axiosInstance.get('/job_position')
+    console.log(response.data)
+    return response.data
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}
+
+//updateJobPosition. post
+export const updateJobPosition = async (data) => {
+  try {
+    const response = await axiosInstance.post(`/job_position/update`, data)
+    console.log(response.data)
+    return response.data
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}
+
+//deleteJobPosition. delete
+export const deleteJobPosition = async (id) => {
+  try {
+    const response = await axiosInstance.delete(`/job_position/${id}`)
     console.log(response.data)
     return response.data
   } catch (error) {

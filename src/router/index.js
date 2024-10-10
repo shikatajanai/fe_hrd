@@ -75,6 +75,13 @@ const routes = [
         component: () => import('@/views/perusahaan/joblevel/job-level.vue'),
         meta: { requiresAuth: true },
       },
+      //job-position
+      {
+        path: '/perusahaan/job-position',
+        name: 'JobPosition',
+        component: () => import('@/views/perusahaan/jobposition/job-position.vue'),
+        meta: { requiresAuth: true },
+      },
       {
         path: '/theme/typography',
         name: 'Typography',
