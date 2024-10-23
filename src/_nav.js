@@ -50,12 +50,18 @@ export default [
         name: 'Job Position',
         to: '/perusahaan/job-position',
       },
+      {
+        component: 'CNavItem',
+        name: 'Shift',
+        to: '/perusahaan/shift',
+      },
+
       
     ],
   },
   {
     component: 'CNavGroup',
-    name: 'Buttons',
+    name: 'Employee',
     to: '/buttons',
     icon: 'cil-cursor',
     items: [

@@ -236,3 +236,63 @@ export const deleteJobPosition = async (id) => {
     throw error
   }
 }
+
+//getShift. get
+export const getShift = async () => {
+  try {
+    const response = await axiosInstance.get('/shift')
+    console.log(response.data)
+    return response.data
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}
+
+//storeShift. post
+export const storeShift = async (data) => {
+  try {
+    const response = await axiosInstance.post('/shift', data)
+    console.log(response.data)
+    return response.data
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}
+
+//deleteShift. delete
+export const deleteShift = async (id) => {
+  try {
+    const response = await axiosInstance.delete(`/shift/${id}`)
+    console.log(response.data)
+    return response.data
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}
+
+//showShift. get
+export const showShift = async (id) => {
+  try {
+    const response = await axiosInstance.get(`/shift/${id}`)
+    console.log(response.data)
+    return response.data
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}
+
+//updateShift. post
+export const updateShift = async (data) => {
+  try {
+    const response = await axiosInstance.post(`/shift/update`, data)
+    console.log(response.data)
+    return response.data
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}

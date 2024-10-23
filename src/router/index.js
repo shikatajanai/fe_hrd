@@ -82,6 +82,13 @@ const routes = [
         component: () => import('@/views/perusahaan/jobposition/job-position.vue'),
         meta: { requiresAuth: true },
       },
+      //shift
+      {
+        path: '/perusahaan/shift',
+        name: 'Shift',
+        component: () => import('@/views/perusahaan/shift/shift.vue'),
+        meta: { requiresAuth: true },
+      },
       {
         path: '/theme/typography',
         name: 'Typography',
